@@ -24,8 +24,13 @@ public class UserHandler implements IUserHandler {
     public UserResponse saveWarehouseAssistant(UserRequest userRequest) {
 
         User user = userMapper.toUser(userRequest);
-        user.setPasswordUser(passwordEncoder.encode(user.getPasswordUser()));
+        if (user.getPasswordUser() == null || user.getPasswordUser().isEmpty()){
+            user.setPasswordUser(null);
+        } else {
+            user.setPasswordUser(passwordEncoder.encode(user.getPasswordUser()));
+        }
 
         return userMapper.toUserResponse(userServicePort.createWarehouseAssistant(user));
     }
+
 }

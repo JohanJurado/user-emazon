@@ -31,7 +31,7 @@ public class UserEntity implements UserDetails {
     private String lastNameUser;
 
     @Column(name = "idDocument_user")
-    private Long idDocumentUser;
+    private String idDocumentUser;
 
     @Column(name = "phone_user")
     private String phoneUser;

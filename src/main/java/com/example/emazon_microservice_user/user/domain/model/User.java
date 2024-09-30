@@ -7,7 +7,7 @@ public class User {
     private Long idUser;
     private String nameUser;
     private String lastNameUser;
-    private Long idDocumentUser;
+    private String idDocumentUser;
     private String phoneUser;
     private LocalDate dateUser;
     private String emailUser;
@@ -17,7 +17,7 @@ public class User {
     public User() {
     }
 
-    public User(Long idUser, String nameUser, String lastNameUser, Long idDocumentUser, String phoneUser, LocalDate dateUser, String emailUser, String passwordUser, Role userRole) {
+    public User(Long idUser, String nameUser, String lastNameUser, String idDocumentUser, String phoneUser, LocalDate dateUser, String emailUser, String passwordUser, Role userRole) {
         this.idUser = idUser;
         this.nameUser = nameUser;
         this.lastNameUser = lastNameUser;
@@ -53,11 +53,11 @@ public class User {
         this.lastNameUser = lastNameUser;
     }
 
-    public Long getIdDocumentUser() {
+    public String getIdDocumentUser() {
         return idDocumentUser;
     }
 
-    public void setIdDocumentUser(Long idDocumentUser) {
+    public void setIdDocumentUser(String idDocumentUser) {
         this.idDocumentUser = idDocumentUser;
     }
 

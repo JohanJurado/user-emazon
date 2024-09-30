@@ -11,16 +11,16 @@ public class Validation {
 
     public User validation(User user){
 
-        if (user.getNameUser().trim().isEmpty()){
+        if (user.getNameUser() == null || user.getNameUser().isEmpty()){
             throw new TheNameUserCannotBeEmptyException(ExceptionConstantsUser.NAME_CANNOT_BE_EMPTY.getMessage());
         }
-        if (user.getLastNameUser().trim().isEmpty()){
+        if (user.getLastNameUser() == null || user.getLastNameUser().isEmpty()){
             throw new TheLastNameUserCannotBeEmptyException(ExceptionConstantsUser.LAST_NAME_CANNOT_BE_EMPTY.getMessage());
         }
         if (user.getIdDocumentUser() == null){
             throw new TheIdDocumentUserCannotBeEmptyException(ExceptionConstantsUser.ID_DOCUMENT_CANNOT_BE_EMPTY.getMessage());
         }
-        if (user.getPhoneUser().trim().isEmpty()) {
+        if (user.getPhoneUser() == null || user.getPhoneUser().isEmpty()) {
             throw new ThePhoneUserCannotBeEmptyException(ExceptionConstantsUser.PHONE_CANNOT_BE_EMPTY.getMessage());
         } else {
             if (user.getPhoneUser().length() > 13){
@@ -35,14 +35,20 @@ public class Validation {
         } else if (!this.isOfLegalAge(user.getDateUser())){
                 throw new NotOfLegalAgeException(ExceptionConstantsUser.NOT_OF_LEGAL_AGE.getMessage());
         }
-        if (user.getEmailUser().trim().isEmpty()) {
+        if (user.getEmailUser() == null || user.getEmailUser().isEmpty()) {
             throw new TheEmailUserCannotBeEmptyException(ExceptionConstantsUser.EMAIL_CANNOT_BE_EMPTY.getMessage());
         } else if (!this.isEmailValid(user.getEmailUser())){
                 throw new EmailNotAllowedException(ExceptionConstantsUser.EMAIL_NOT_ALLOWED.getMessage());
         }
-        if (user.getPasswordUser().trim().isEmpty()){
+        if (user.getPasswordUser() == null){
             throw new ThePasswordUserCannotBeEmptyException(ExceptionConstantsUser.PASSWORD_CANNOT_BE_EMPTY.getMessage());
         }
+
+        user.setNameUser(user.getNameUser().trim().toUpperCase());
+        user.setLastNameUser(user.getLastNameUser().trim().toUpperCase());
+        user.setPhoneUser(user.getPhoneUser().trim());
+        user.setEmailUser(user.getEmailUser().trim().toLowerCase());
+        user.setPasswordUser(user.getPasswordUser().trim());
 
         return user;
     }

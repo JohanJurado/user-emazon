@@ -105,5 +105,19 @@ public class ControllerAdvisorUser {
                 .body(Collections.singletonMap(MESSAGE, userNotFoundException.getMessage()));
     }
 
+    @ExceptionHandler(EmailAlreadyExistException.class)
+    public ResponseEntity<Map<String, String>> handleEmailAlreadyExistException(
+            EmailAlreadyExistException emailAlreadyExistException) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(Collections.singletonMap(MESSAGE, emailAlreadyExistException.getMessage()+" "+emailAlreadyExistException.getEmailUser()));
+    }
+
+    @ExceptionHandler(IdDocumentAlreadyExistException.class)
+    public ResponseEntity<Map<String, String>> handleIdDocumentAlreadyExistException(
+            IdDocumentAlreadyExistException idDocumentAlreadyExistException) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(Collections.singletonMap(MESSAGE, idDocumentAlreadyExistException.getMessage()+" "+idDocumentAlreadyExistException.getIdDocumentUser()));
+    }
+
 }
 

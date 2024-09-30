@@ -22,6 +22,6 @@ public class UserResponse {
     private LocalDate dateUser;
     private String emailUser;
     private String passwordUser;
-    private Role userRole;
+    private RoleDto userRole;
 
 }

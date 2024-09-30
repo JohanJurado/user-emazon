@@ -1,6 +1,5 @@
 package com.example.emazon_microservice_user.user.application.dto;
 
-import com.example.emazon_microservice_user.user.domain.model.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

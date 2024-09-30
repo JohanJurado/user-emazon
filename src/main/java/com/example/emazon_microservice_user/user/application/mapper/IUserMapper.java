@@ -28,7 +28,8 @@ public interface IUserMapper {
     @Mapping(target = "dateUser", source = "dateUser")
     @Mapping(target = "emailUser", source = "emailUser")
     @Mapping(target = "passwordUser", source = "passwordUser")
-    @Mapping(target = "userRole", source = "userRole")
+    @Mapping(target = "userRole.idRole", source = "userRole.idRole")
+    @Mapping(target = "userRole.nameRole", source = "userRole.nameRole")
     UserResponse toUserResponse(User user);
 
 }

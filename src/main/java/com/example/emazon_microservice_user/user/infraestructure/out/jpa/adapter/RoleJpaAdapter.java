@@ -6,8 +6,6 @@ import com.example.emazon_microservice_user.user.infraestructure.out.jpa.mapper.
 import com.example.emazon_microservice_user.user.infraestructure.out.jpa.repository.IRoleJpaRepository;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Optional;
-
 @RequiredArgsConstructor
 public class RoleJpaAdapter implements IRolePersistencePort {
 

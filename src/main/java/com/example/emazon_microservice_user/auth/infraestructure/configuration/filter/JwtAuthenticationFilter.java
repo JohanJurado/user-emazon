@@ -24,7 +24,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
 
-    private final int POSITION_FINAL_OF_BEARER = 7;
+    private static final int POSITION_FINAL_OF_BEARER = 7;
 
     @Override
     protected void doFilterInternal(@NotNull HttpServletRequest request,
