@@ -70,10 +70,29 @@ class ValidationTest {
     }
 
     @Test
+    void shouldThrowExceptionWhenPhoneIsInvalid() {
+        Constants constants = new Constants();
+        User user = constants.USER1;
+        user.setPhoneUser("invalid_phone");
+
+        assertThrows(PhoneNotAllowedException.class, () -> validation.validation(user));
+    }
+
+    @Test
     void shouldPassValidationWhenUserIsValid() {
         Constants constants = new Constants();
         User user = constants.USER1;
 
         validation.validation(user);
+    }
+
+    @Test
+    void shouldThrowMaxiumPhoneSizeExceededException() {
+        Constants constants = new Constants();
+        User user = constants.USER1;
+        user.setPhoneUser("22222222222222222222222222222");
+
+        assertThrows(MaxiumPhoneSizeExceededException.class, () -> validation.validation(user));
+
     }
 }
