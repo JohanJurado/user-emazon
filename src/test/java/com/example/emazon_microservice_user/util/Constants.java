@@ -27,5 +27,6 @@ public class Constants {
     public String NAME_ROLE_UNKNOWN_ROLE = "UNKNOWN_ROLE";
     public String EMAIL = "unknown@example.com";
     public String ID_DOCUMENT = "123456";
+    public String PASSSWORD = "1234567890";
 
 }

@@ -4,6 +4,7 @@ import com.example.emazon_microservice_user.auth.application.dto.AuthenticationR
 import com.example.emazon_microservice_user.auth.application.dto.AuthenticationResponse;
 import com.example.emazon_microservice_user.user.infraestructure.out.jpa.entity.UserEntity;
 import com.example.emazon_microservice_user.user.infraestructure.out.jpa.repository.IUserJpaRepository;
+import com.example.emazon_microservice_user.util.Constants;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -39,11 +40,10 @@ class AuthenticationServiceTest {
 
     @BeforeEach
     void setUp() {
-        user = new UserEntity();
-        user.setEmailUser("test@example.com");
-        user.setPasswordUser("password");
+        Constants constants = new Constants();
+        user = constants.USER_ENTITY1;
 
-        authenticationRequest = new AuthenticationRequest("test@example.com", "password");
+        authenticationRequest = new AuthenticationRequest(user.getEmailUser(), user.getPasswordUser());
     }
 
     @Test
