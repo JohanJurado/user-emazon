@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.Map;
 
+//import static com.example.emazon_microservice_user.user.application.handler.UserHandler.passwordEncoder;
+
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
